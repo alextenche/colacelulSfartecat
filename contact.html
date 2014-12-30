@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Smells Like Bakin' Cupcake Company</title>
+	<meta name="author" content="Tenche Alexandru">
+	<title>Colăcelul Sfârtecat</title>
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -19,7 +20,7 @@
 			<object data="img/logo.svg" type="image/svg+xml" class="logo">
 				<a href="logo.svg" >
 					<!--[if lte IE 8 ]-->
-					<img src="img/logo.gif" alt="Smells Like Bakin">
+					<img src="img/logo.gif" alt="Colăcelul Sfârtecat">
 					<!--![endif]-->
 				</a>
 			</object>
@@ -141,16 +142,16 @@
 			}).blur(function(){
 				$(this).next().fadeOut("slow");
 			}).keyup(function(){
-				//Check all required fields.
+				// check all required fields.
 				requiredFilledIn();
 			});
 
 			$("#email").keyup(function(){
-				//Check for a valid email.
+				// check for a valid email.
 				if(isValidEmail($(this).val()))
-				 $(this).next().removeClass("error").addClass("valid");
+					$(this).next().removeClass("error").addClass("valid");
 				else 
-				 $(this).next().removeClass("valid").addClass("error");
+					$(this).next().removeClass("valid").addClass("error");
 			});
 
 			requiredFilledIn();
