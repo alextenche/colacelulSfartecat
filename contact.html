@@ -122,19 +122,22 @@
 			var $required = $(".required");
 			
 			function containsBlanks(){
-				var blanks = $required.map(function(){ return $(this).val() == "";});
+				var blanks = $required.map(function(){
+				 	return $(this).val() == "";
+				 });
 				return $.inArray(true, blanks) != -1;
 			}
-
+			
 			function isValidEmail(email){
 				return email.indexOf("@") != -1;
 			}
 
 			function requiredFilledIn(){
-				if(containsBlanks() || !isValidEmail($("#email").val())) 
+				if(containsBlanks() || !isValidEmail($("#email").val())){
 					$submit.attr("disabled","disabled");
-				else 
+				} else {
 					$submit.removeAttr("disabled");
+				}
 			}
 
 			$("#form span").hide();
@@ -148,11 +151,11 @@
 			});
 
 			$("#email").keyup(function(){
-				// check for a valid email.
-				if(isValidEmail($(this).val()))
+				if(isValidEmail($(this).val())){
 					$(this).next().removeClass("error").addClass("valid");
-				else 
+				} else {
 					$(this).next().removeClass("valid").addClass("error");
+				}
 			});
 
 			requiredFilledIn();
