@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
 	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 	<script src="external/matchmedia.js"></script>
-	<script src="js/picturefill.js"></script>
+	<script src="picturefill.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
 </head>
 
@@ -23,6 +23,7 @@
 					<!--![endif]-->
 				</a>
 			</object>
+
 		</div>
 		<div id="nav" class="grid_8 omega" >
 			<ul>
@@ -38,28 +39,27 @@
 		</div>
 
 		<div id="locations" class="grid_12">
-			
 
 			<div class="grid_6">
-				<h2>Magazin Timișoara</h2>
+				<h2>Orlando Store</h2>
 				<p>Local: <span class="contact">407-555-5555</span><br>Toll Free: <span class="contact">1-800-CUP-CAKE</span><br>
 					Email us: <a href="#">bakeon@smellslikebakin.com</a></p>
 					<p class="static_map">
-						<img src="http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDGsHQR4XoIefRfnKyehmJ0Vy71NiDvjbI&size=400x300&sensor=false&markers=Timisoara" alt="Timișoara">
+						<img src="http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAq3k9MvDbfTDMsx6tOycIs0-HWtRDY0Rw&size=400x300&sensor=false&markers=622+E+Washington+Street,+Suite+240+Orlando,+FL+32801" alt="622 E Washington Street, Suite 240, Orlando, FL 32801">
 					</p>
 					<address>
-						Timiș<br>Timișoara
+						622 E Washington Street, Suite 240<br>Orlando, FL 32801
 					</address>
 				</div>
 				<div class="grid_6 omega">
-					<h2>Magazin Hitiaș</h2>
+					<h2>Portland Store</h2>
 					<p>Local: <span class="contact">503-555-5555</span><br>Toll Free: <span class="contact">1-800-CUP-CAKE</span><br>
 						Email us: <a href="#">bakeon@smellslikebakin.com</a></p>
 						<p class="static_map">
-							<img src="http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDGsHQR4XoIefRfnKyehmJ0Vy71NiDvjbI&size=400x300&sensor=false&markers=Hitias" alt="Hitiaș">
+							<img src="http://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAq3k9MvDbfTDMsx6tOycIs0-HWtRDY0Rw&size=400x300&sensor=false&markers=70+Northwest+Couch+Street+Portland,+Oregon+97209" alt="70 Northwest Couch Street<br>Portland, Oregon 97209">
 						</p>
 						<address>
-							Hitiaș
+							70 Northwest Couch Street<br>Portland, Oregon 97209
 						</address>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 
 					<div id="contact" class="grid_5 omega">
 						<h2>Get Bakin’ with Us</h2>
-						<p>Call us: <span>1-800-CUP-CAKE</span><br>
+						<p>Call us: 1-800-CUP-CAKE<br>
 							Email us: <a href="#">bakeon@smellslikebakin.com</a></p>
 
 							<p>We announce all of our new flavors first through Facebook &amp; Twitter, and even take requests!</p>		
@@ -98,57 +98,55 @@
 						</div>
 
 						<div id="copyright" class="grid_12">
-							<p>© 2015 Colăcelul Sfârtecat & alexTenche. All Rights Reserved.</p>
+							<p>© 2012 Smells Like Bakin' Cupcake Company. All Rights Reserved.</p>
 						</div>
 
 					</div>
 
 				</div>
 				<script type="text/javascript" src="js/jquery.js"></script>
-				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGsHQR4XoIefRfnKyehmJ0Vy71NiDvjbI"></script>
-				<script>
-					$("#locations").prepend('<div id="map"></div>');
-					$(".static_map").remove();
-
-					var map;
-					var center;
-					var bounds;
-					var geocoder;
-
-					function initialize() {
-						var mapOptions = {
-							center: { lat: -34.397, lng: 150.644},
-							zoom: 8,
-							mapTypeId: google.maps.MapTypeId.ROADMAP
-						};
-						map = new google.maps.Map(document.getElementById('map'),mapOptions);
-						geocoder = new google.maps.Geocoder();
-						bounds = new google.maps.LatLngBounds();
-					}
-
-					function addMarkerToMap(location){
-						var marker = new google.maps.Marker({map: map, position: location});
-						bounds.extend(location);
-						map.fitBounds(bounds);
-					}
-					
-					initialize();
-
-					$("address").each(function() {
-						var $address = $(this);
-						geocoder.geocode({address: $address.text()}, function(results,status){
-							if(status == google.maps.GeocoderStatus.OK){addMarkerToMap(results[0].geometry.location)}
-						});
-					});
-
-					google.maps.event.addDomListener(map, "idle", function(){
-						center = map.getCenter();
-					});
-
-					$(window).resize(function(){
-						map.setCenter(center);
-					});
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq3k9MvDbfTDMsx6tOycIs0-HWtRDY0Rw&sensor=false">
 				</script>
-				
+				<script type="text/javascript">
+				$("#locations").prepend('<div id="map"></div>');
+				$(".static_map").remove();
+				var map;
+				var bounds;
+				var geocoder;
+				var center;
+				function initialize() {
+					var mapOptions = {
+						center: new google.maps.LatLng(-34.397, 150.644),
+						zoom: 8,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					map = new google.maps.Map(document.getElementById("map"),
+						mapOptions);
+					geocoder = new google.maps.Geocoder();
+					bounds = new google.maps.LatLngBounds();
+				}
+				function addMarkerToMap(location){
+					var marker = new google.maps.Marker({map: map, position: location});
+					bounds.extend(location);
+					map.fitBounds(bounds);
+				}
+				initialize();
+
+				$("address").each(function(){
+					var $address = $(this);
+					geocoder.geocode({address: $address.text()}, function(results, status){
+						if(status == google.maps.GeocoderStatus.OK) addMarkerToMap(results[0].geometry.location);
+					});
+				});
+
+				google.maps.event.addDomListener(map, "idle", function(){
+					center = map.getCenter();
+				});
+
+				$(window).resize(function(){
+					map.setCenter(center);
+				});
+
+				</script>
 			</body>
 			</html>
