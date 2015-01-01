@@ -95,13 +95,13 @@ btn:hover {
 	float: left;
 	}
 	#nav ul li.about {
-		width: 15%;
+		width: 20%;
 	}
 	#nav ul li.pricing {
-		width: 35%;
+		width: 30%;
 	}
 	#nav ul li.locations {
-		width: 15%;
+		width: 10%;
 	}
 	#nav ul li.contact {
 		width: 25%;

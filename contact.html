@@ -31,44 +31,44 @@
 			<li class="about"><a href="index.html">Despre noi</a></li>
 				<li class="pricing"><a href="pricing.html">Colăcei & Prețuri</a></li>
 				<li class="locations"><a href="locations.html">Locații</a></li>
-				<li class="contact"><a href="contact.html">Cum dați de noi</a></li>
+				<li class="contact"><a href="contact.html">Scrieți-ne</a></li>
 			</ul>
 		</div>
 
 		<div class="grid_12">
-			<h1 class="hero">We have a wide variety of delicious desserts that are sure to take you by surprise!</h1>
+			<h1 class="hero">Avem o grămada de colăcei rumeniți și turtițe uleioase care sigur vă vor lua prin surprindere!</h1>
 		</div>
 
 
 		<div id="form" class="grid_12 omega">
-			<h2>Contact Smells Like Bakin'</h2>
+			<h2>Mesaj pentru Colăcelul Sfârtecat</h2>
 			<form action="contact.php" method="post">
 
 				<p>
-					<label for="name">Name:</label>
+					<label for="name">Numele:</label>
 					<input name="name" id="name" type="text" class="required">
-					<span>Please enter your name</span>
+					<span>numele</span>
 				</p>
 
 				<p>
 					<label for="email">Email:</label>
 					<input name="email" id="email" type="text" class="required"> 
-					<span>Please enter a valid email address</span>
+					<span>adresa de email</span>
 				</p>
 
 				<p>
-					<label for="subject">Subject:</label>
+					<label for="subject">Subiect:</label>
 					<input name="subject" id="subject" type="text"> 
-					<span>Please enter your subject</span>
+					<span>subiectul</span>
 				</p>
 
 				<p>
-					<label for="message">Message</label>
+					<label for="message">Mesajul:</label>
 					<textarea name="message" id="message" class="required"></textarea> 
-					<span>Please enter your message</span>
+					<span>mesajul</span>
 				</p>
 				<p class="submit">
-					<input type="submit" value="Submit" class="btn-submit">
+					<input type="submit" value="Trimite" class="btn-submit">
 				</p>
 			</form>
 
@@ -79,16 +79,16 @@
 
 		<div id="footer" class="grid_12">
 			<div id="about" class="grid_7">
-				<h2>Inside the Kitchen</h2>
+				<h2>În bucătărie</h2>
 				<p>Smells Like Bakin’ started out in the garage of the husband wife duo Allison &amp; Joseph. Allison is the baker, and Joseph found a way for them to make a business out of her tasty treats. Flash forward to today and they have a successful store front, catering business and cupcake truck. </p>
-				<p><a href="#" class="btn-small">Read More</a></p>
+				<p><a href="#" class="btn-small">citește mai mult</a></p>
 			</div>
 			
 			
 			<div id="contact" class="grid_5 omega">
-				<h2>Get Bakin’ with Us</h2>
-				<p>Call us: <span class="contact">1-800-CUP-CAKE</span><br>
-					Email us: <a href="#">bakeon@smellslikebakin.com</a></p>
+				<h2>Colăcelul Sfârtecat</h2>
+				<p>Sună-ne: <span class="contact">40-0765-COLACEL</span><br>
+					Scrie-ne: <a href="#">colacel@bucatarie.ro</a></p>
 					
 					<p>We announce all of our new flavors first through Facebook &amp; Twitter, and even take requests!</p>		
 					
@@ -110,13 +110,14 @@
 				</div>
 				
 				<div id="copyright" class="grid_12">
-					<p>© 2012 Smells Like Bakin' Cupcake Company. All Rights Reserved.</p>
+					<p>© 2015 Colăcelul Sfârtecat & alexTenche. All Rights Reserved.</p>
 				</div>
 
 			</div>
 			
 		</div>
 		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/validEmail.js"></script>
 		<script type="text/javascript">
 			var $submit = $(".submit input");
 			var $required = $(".required");
@@ -127,13 +128,9 @@
 				 });
 				return $.inArray(true, blanks) != -1;
 			}
-			
-			function isValidEmail(email){
-				return email.indexOf("@") != -1;
-			}
 
 			function requiredFilledIn(){
-				if(containsBlanks() || !isValidEmail($("#email").val())){
+				if(containsBlanks() || !$("#email").validEmail()){
 					$submit.attr("disabled","disabled");
 				} else {
 					$submit.removeAttr("disabled");
@@ -150,13 +147,13 @@
 				requiredFilledIn();
 			});
 
-			$("#email").keyup(function(){
-				if(isValidEmail($(this).val())){
-					$(this).next().removeClass("error").addClass("valid");
-				} else {
-					$(this).next().removeClass("valid").addClass("error");
-				}
-			});
+			// validating email
+			$("#email").validEmail({on:"keyup", success:function(){
+				$(this).next().removeClass("error").addClass("valid");
+			}, 
+			failure:function(){
+				$(this).next().removeClass("valid").addClass("error");
+			}});
 
 			requiredFilledIn();
 		</script>
