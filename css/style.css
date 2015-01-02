@@ -4,8 +4,8 @@ body {
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
 	font-size: 1.125em;
-	color: #faf3bc;
-	background: #420600 url('img/bg-texture.jpg') repeat;
+	color: #E5EBEF;
+	background: url('img/bg-texture.jpg') repeat;
 }
 
 a {
